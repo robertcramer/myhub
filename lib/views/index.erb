@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Robert's Github Issues</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<h1>Github Ironyard/Assignments Issues:</h1>
+
+<p>Press the button to open or close an issue.</p>
+<ul class="song-list">
+  <% issues.each do |issue| %>
+      <li>
+        <%= issue %>
+        <form action="/api/play/<%= issue %>" method="post">
+          <input type="submit" value="Close">
+        </form>
+      </li>
+  <% end %>
+</ul>
+</body>
+</html>
+
