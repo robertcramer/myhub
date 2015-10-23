@@ -12,8 +12,7 @@ module Myhub
     # Your code here ...
     get "/" do
       api = Github.new
-      api.get_issues
-      binding.pry
+      stuff = api.get_issues
       # get stuff from github
       erb :index, locals: { issues: stuff }
     end

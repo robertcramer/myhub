@@ -5,16 +5,23 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<h1>Github Ironyard/Assignments Issues:</h1>
+<h1>Iron Yard Issues</h1>
 
 <p>Press the button to open or close an issue.</p>
-<ul class="song-list">
+<ul class="issue-list">
   <% issues.each do |issue| %>
       <li>
-        <%= issue %>
-        <form action="/api/play/<%= issue %>" method="post">
-          <input type="submit" value="Close">
-        </form>
+        Issue #<%= issue[:number] %>
+        Issue #<%= issue[:state] %>
+        <% if issue[:state] == "open" %>
+            <form action="/issue/close/<%= issue[:number] %>" method="post">
+              <input type="submit" value="Close!">
+            </form>
+        <% else %>
+            <form action="/issue/reopen/<%= issue[:number] %>" method="post">
+              <input type="submit" value="Close!">
+            </form>
+        <% end %>
       </li>
   <% end %>
 </ul>
